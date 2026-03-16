@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes with Flask</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Notes App</h1>
+        
+        <form method="post">
+            <input type="text" name="note" placeholder="Write your note" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <ul>
+            {% for note in notes %}
+            <li>
+                {{ note[1] }}
+                <a href="/delete/{{ note[0] }}">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="static/index.js"></script>
+</body>
+</html>
